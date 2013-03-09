@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html ng-app="magpie">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <link rel="stylesheet" href="css/vendor/bootstrap.min.css" media="screen">
+    <link rel="stylesheet" href="css/magpie.css"></link>
+    <script type="text/javascript" src="js/vendor/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="js/vendor/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/vendor/angular/angular.js"></script>
+    <script type="text/javascript" src="js/vendor/angular/angular-resource.js"></script>
+    <script type="text/javascript" src="js/vendor/angular/ui-bootstrap-0.1.0.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/filters.js"></script>
+    <script type="text/javascript" src="js/ctrls/FruitCtrl.js"></script>
+    <script type="text/javascript" src="js/services/fruitResource.js"></script>
+    <script type="text/javascript" src="js/ctrls/NavbarCtrl.js"></script>
+    <script type="text/javascript" src="js/ctrls/UserRegistCtrl.js"></script>
+    <script type="text/javascript" src="js/ctrls/ajaxtestCtrl.js"></script>
+    <script type="text/javascript" src="js/services/DriverService.js"></script>
+    <script type="text/javascript" src="js/ctrls/DriverListCtrl.js"></script>
+    <script type="text/javascript" src="js/ctrls/NavigatorListCtrl.js"></script>
+    <script type="text/javascript" src="js/services/NavigatorService.js"></script>
+    <script type="text/javascript" src="js/services/NaviScheduleService.js"></script>
+    <script type="text/javascript" src="js/ctrls/ScheduleListCtrl.js"></script>
+    <script type="text/javascript" src="js/services/ScheduleService.js"></script>
+    <script type="text/javascript" src="js/ajaxtest.js"></script>
+    <script type="text/javascript" src="js/services/SlotService.js"></script>
+    <!--
+    <script src="//mgcrea.github.com/angular-strap/js/angular-strap.js"></script>
+    <script type="text/javascript" src="js/simplecontroller.js"></script>
+    -->
+    <title>magpie</title>
+  </head>
+  <div class="container">
+
+	  <div class="navbar" ng-controller="NavbarCtrl">
+		  <div class="navbar-inner">
+			  <a class="brand" href="#/">Magpie</a>
+			  <ul class="nav">
+				  <li ng-class="{active: routeIs('/schedules')}"><a href="#/schedules">Schedule</a></li>
+				  <li ng-class="{active: routeIs('/drivers')}"><a href="#/drivers">Driver</a></li>
+				  <li ng-class="{active: routeIs('/navigators')}"><a href="#/navigators">Navigator</a></li>
+				  <li ng-class="{active: routeIs('/fruits')}"><a href="#/fruits">fruits</a></li>
+				  <li ng-class="{active: routeIs('/admin')}"><a href="#/admin">Admin</a></li>
+			  </ul>
+
+			  <ul class="nav pull-right">
+				  <li ng-class="{active: routeIs('/help')}"><a href="#/help">Help</a></li>
+			  </ul>
+		  </div>
+	  </div>
+	  <ng-view></ng-view>
+  </div>  
+<!--
+	<div ng-controller="ajaxtestCtrl">
+	
+    <form id="drivers" method=get enctype="utf-8">
+      <input type="button" value="navigators?" onclick="getNaviSchedules(3)"></input>
+    </form>
+    
+	</div>
+-->
+</html>

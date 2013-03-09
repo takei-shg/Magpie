@@ -1,0 +1,7 @@
+.well p, .well td, .well button {
+    text-align : right;
+}
+
+body {
+    background : url('../img/magpie1.jpeg') no-repeat;
+}

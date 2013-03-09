@@ -1,0 +1,7 @@
+cabal-dev/
+dist/
+*.o
+*.hi
+Migrate
+db/
+*.swp

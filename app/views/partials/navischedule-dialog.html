@@ -1,0 +1,24 @@
+<div class="modal-header">
+    <h1>Schedules</h1>
+</div>
+<div class="modal-body">
+            <table class="table table-hover">
+                <thead>
+                    <th>Date</th>
+                    <th>Status</th>
+                </thead>
+                <tbody ng-repeat="schedule in items" class="thumbnail">
+                    <tr>
+                        <td>{{schedule.body.date | date:'MM/dd'}}</td>
+                        <td>{{schedule.body.available}}</td>
+                        <td>
+                            <select style="width:100%;" ng-model="schedule.body.available" ng-options="alt.name for alt in alternatives" value={{schedule.body.available}}>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+</div>
+<div class="modal-footer">
+    <button ng-repeat="btn in btns" ng-click="close(btn.result)" class=btn ng-class="btn.cssClass">{{ btn.label }}</button>
+</div>

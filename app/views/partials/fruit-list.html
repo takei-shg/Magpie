@@ -1,0 +1,24 @@
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span2">
+            <div ng-controller="FruitCtrl">
+                <p class="fruit">{{fruit.type}}: {{fruit.count}}</p>
+                <p><a ng-click="changeFruit()">Get new fruit!</a> <span class="status"></span></p>
+                <p><a ng-click="printFruit()">Print current fruit</a></p>
+                <p><a ng-click="load()">load</a></p>
+                <table class="table">
+                    <tbody ng-repeat="item in list">
+                        <tr>
+                            <td>{{item.id}}</td>
+                            <td>
+                                <select ng-model="item.choice" ng-options="k as v for (k,v) in alts"></select>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="span10">
+        </div>
+    </div>
+</div>

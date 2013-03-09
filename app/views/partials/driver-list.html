@@ -1,0 +1,77 @@
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span3 well">
+            <div class="clearfix">
+                <form class="form-vertical">
+                    <div class="control-group">
+                        <label class="control-label" for="selectSlot">
+                            <h4>Slot</h4>
+                        </label>
+                        <div class="controls">
+                            <select id="selectSlot" style="width:100%;" ng-model="selectedSlot" ng-change="update()" ng-options="slot.body.slotName.slotName for slot in slots">
+                            </select>
+                        </div>
+                        <div class="clearfix pull-right">
+                            <div>
+                                <input class="btn" type="button" value="reload" ng-click="update()" /></input>
+                            </div>
+                            <div class="clear">
+                                <span class="status"></span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div ng-show="loaded">
+                <hr></hr>
+                <h4>Department : </h4>
+                <p>{{slotDetail.slot.body.dept.dept}}</p>
+                <h4>Leader : </h4>
+                <p>{{slotDetail.leader.body.name}}</p>
+                <table class="table">
+                    <thead>
+                        <th>Members</th>
+                    </thead>
+                    <tbody ng-repeat="member in slotDetail.members">
+                        <tr>
+                            <td>{{member.body.name}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="span7 well">
+            <p>
+                <h4>Schedules</h4>
+            </p>
+            <div>
+                <table class="table table-hover">
+                    <thead>
+                        <th>Date</th>
+                        <th>Driver</th>
+                        <th>Status</th>
+                    </thead>
+                    <tbody ng-repeat="schedule in slotSchedules">
+                        <tr>
+                            <td>{{schedule.body.date | date:'MM/dd'}}</td>
+                            <td>
+                                <select style="width:75%;" ng-model="schedule.body.driverId" ng-options="member.id as member.body.name for member in slotDetail.members" ng-change="setDirty()">
+                                </select>
+                            </td>
+                            <td>
+                                <select style="width:100%;" ng-model="schedule.body.status.status" ng-options="k as v for (k,v) in alternatives" ng-change="setDirty()">
+                                </select>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p ng-show="loaded" class="pull-right">
+                <button class="btn" ng-click="reload()" ng-disabled="!dirty">Cancel</button>
+                <button class="btn btn-primary" ng-click="save()" ng-disabled="!dirty">Save</button>
+            </p>
+        </div>
+        <div class="span2">
+        </div>
+    </div>
+</div>
