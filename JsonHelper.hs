@@ -1,12 +1,12 @@
 {-# LANGUAGE OverloadedStrings #-}
 module JsonHelper where
 
-import           Web.Scotty (ActionM, rescue, status, json, body)
 import qualified Data.Aeson              as AE
-import qualified Network.HTTP.Types      as HT
 import           Data.Monoid             (mconcat)
-import           Data.Text             (pack)
-import           Data.Text.Lazy.Internal    (Text)
+import           Data.Text               (pack)
+import           Data.Text.Lazy.Internal (Text)
+import qualified Network.HTTP.Types      as HT
+import           Web.Scotty              (ActionM, body, json, rescue, status)
 
 withRescue :: ActionM () -> ActionM ()
 withRescue a = a `rescue` rescue'

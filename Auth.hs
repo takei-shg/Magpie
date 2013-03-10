@@ -3,20 +3,20 @@
 -- Now, it does not work.
 module Auth where
 
-import Web.Scotty as W
-import Network.HTTP.Types.Status
-import Network.Wai
-import Control.Applicative((<$>))
-import           Control.Monad.Trans     (MonadIO)
-import qualified Data.ByteString.Base64 as B64
-import qualified Data.ByteString as B
-import qualified Data.Text.Lazy as TL
-import qualified Database.Persist as P
+import           Control.Applicative         ((<$>))
+import           Control.Monad.Trans         (MonadIO)
+import qualified Data.ByteString             as B
+import qualified Data.ByteString.Base64      as B64
+import           Data.Text                   (unpack)
+import           Data.Text.Encoding          (decodeUtf8)
+import qualified Data.Text.Lazy              as TL
+import qualified Database.Persist            as P
 import qualified Database.Persist.GenericSql as PG
-import           Model 
-import           DBHelper (runDB)
-import           Data.Text             (unpack)
-import           Data.Text.Encoding    (decodeUtf8)
+import           DBHelper                    (runDB)
+import           Model
+import           Network.HTTP.Types.Status
+import           Network.Wai
+import           Web.Scotty                  as W
 
 data AuthResult = Authorized | Unauthorized deriving (Show)
 
@@ -28,7 +28,7 @@ askBasicAuthentication :: ActionM ()
 askBasicAuthentication = do
     W.status status401
     header "WWW-Authenticate" "Basic realm=\"please-auth\""
-    html $ "unauthorized" 
+    html $ "unauthorized"
 
 checkAuthentified :: (B.ByteString -> B.ByteString -> AuthResult) -> ActionM AuthResult
 checkAuthentified test = do

@@ -24,8 +24,8 @@ get path env configName = do
 
 		getObject env v = do
 			envs <- fromObject v
-			maybe 
-				(error $ "Could not find environment: " ++ show env) 
+			maybe
+				(error $ "Could not find environment: " ++ show env)
 				return $ fromObject =<< M.lookup env envs
 
 		fromObject m =

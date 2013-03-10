@@ -8,8 +8,8 @@ import qualified Database.Persist.Sqlite as PS
 import           System.Directory        (doesDirectoryExist)
 
 import qualified Config
+import           DBHelper                (runDB)
 import           Model
-import           DBHelper (runDB)
 
 main :: IO ()
 main = do

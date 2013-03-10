@@ -9,19 +9,19 @@
 {-# LANGUAGE TypeSynonymInstances #-}
 module Model where
 
-import           Control.Monad (mzero)
 import           Control.Applicative
+import           Control.Monad           (mzero)
+import qualified Data.Aeson              as A
 import           Data.Text
-import           Data.Time.Clock (UTCTime) -- UTCTime has ToJSON
+import           Data.Time.Clock         (UTCTime)
 import           Database.Persist
 import           Database.Persist.Sqlite
 import           Database.Persist.TH
-import qualified Data.Aeson as A
 import           GHC.Generics
+import           Model.MatchStatus
+import           Model.NaviStatus
 import           Model.Role
 import           Model.SlotStatus
-import           Model.NaviStatus
-import           Model.MatchStatus
 
 share [mkPersist sqlSettings, mkMigrate "migrateAll"] [persist|
 
@@ -71,21 +71,21 @@ Match json
 |]
 
 data Department
-    = ATCQ | SCHA | DENKI 
+    = ATCQ | SCHA | DENKI
     deriving (Show, Read, Eq, Enum)
- 
+
 data SlotName
     = ATCQ1 | ATCQ2 | ATCQ3 | SCHA1 | DENKI1
     deriving (Show, Read, Eq, Enum)
 
 data Available
-    = OK | NO 
+    = OK | NO
     deriving (Show, Read, Eq, Enum)
- 
+
 type SlotSurrogate = (SlotId, UTCTime)
 
 type NaviSurrogate = (UserId, UTCTime)
- 
+
 derivePersistField "Role"
 derivePersistField "Department"
 derivePersistField "SlotName"

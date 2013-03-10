@@ -1,18 +1,18 @@
 {-# LANGUAGE OverloadedStrings #-}
 
+import qualified Config
 import           Control.Exception
 import           Control.Monad
 import qualified Data.Text               as T
+import           Data.Time.Clock         (UTCTime)
 import qualified Database.Persist.Sqlite as P
-import           System.Directory        (doesDirectoryExist)
-import           Data.Time.Clock (UTCTime) -- UTCTime has ToJSON
-import qualified Config
+import           DBHelper                (runDB)
 import           Model
+import qualified Model.MatchStatus       as MS
+import qualified Model.NaviStatus        as NS
 import           Model.Role
-import qualified Model.SlotStatus as SS
-import qualified Model.NaviStatus as NS
-import qualified Model.MatchStatus as MS
-import           DBHelper (runDB)
+import qualified Model.SlotStatus        as SS
+import           System.Directory        (doesDirectoryExist)
 
 main :: IO ()
 main = do
@@ -33,7 +33,7 @@ main = do
     scha2 <- runDB pool $ P.insert $ User "shinco" "shinco@schadara.com" "shinco@schadara.com" SCHA  (Just Navigator)
     denki_leader <- runDB pool $ P.insert $ User "Pierre" "pierre@denki.gr" "pierre@denki.gr" DENKI  (Just Driver)
     denki1 <- runDB pool $ P.insert $ User "takkyu" "takkyu@denki.gr" "takkyu@denki.gr" DENKI  (Just Driver)
-    
+
     slot1 <- runDB pool $ P.insert $ (Slot ATCQ1 ATCQ (Just atcq_leader) [atcq1 , atcq2])
     slot2 <- runDB pool $ P.insert $ (Slot SCHA1 ATCQ (Just scha_leader) [scha1, scha2])
     slot3 <- runDB pool $ P.insert $ (Slot DENKI1 DENKI (Just denki_leader) [denki1])
@@ -62,7 +62,7 @@ main = do
         d_3_05 = (read "2013-03-05 00:00:00 UTC") :: UTCTime
         d_3_07 = (read "2013-03-07 00:00:00 UTC") :: UTCTime
         d_3_12 = (read "2013-03-12 00:00:00 UTC") :: UTCTime
-        
+
 
 clearData :: P.ConnectionPool -> IO ()
 clearData pool = do
