@@ -2,5 +2,5 @@
 
 /* Controllers */
 function ajaxtestCtrl($scope, SlotService) {
-	$scope.slots = SlotService.query();
+  $scope.slots = SlotService.query();
 }

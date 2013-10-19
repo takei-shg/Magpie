@@ -62,10 +62,10 @@ function NavigatorListCtrl($scope, $dialog, NavigatorService, NaviScheduleServic
     });
   };
 
-	$scope.alternatives= {
+  $scope.alternatives= {
     'OK' : '可能'
   , 'NO' : '不可能'
-	};
+  };
 }
 /*
  *
@@ -77,14 +77,14 @@ function NavigatorListCtrl($scope, $dialog, NavigatorService, NaviScheduleServic
                     chosen: $scope.rawnaviSchedules[i].body.available
             });
         }
-	$scope.alternatives= [
-		{ value: '可能', available: 'true' },
-		{ value: '不可能', available: 'false' }
-	];
-	$scope.alternatives= [
-		{ available: 'AVAILABLE' },
-		{ available: 'NOT_AVAILABLE' }
-	];
+  $scope.alternatives= [
+    { value: '可能', available: 'true' },
+    { value: '不可能', available: 'false' }
+  ];
+  $scope.alternatives= [
+    { available: 'AVAILABLE' },
+    { available: 'NOT_AVAILABLE' }
+  ];
         if ($scope.selectedNavi === undefined) return;
         NaviScheduleService.query($scope.naviSchedules, $scope.selectedNavi.id);
         

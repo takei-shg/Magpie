@@ -2,6 +2,6 @@
 
 /* Controller for Group (leader, members) */
 function GroupCtrl($scope, GroupLeaderService, GroupMemberService) {
-	$scope.leader = GroupLeaderService.query();
-	$scope.members = GroupMemberService.query();
+  $scope.leader = GroupLeaderService.query();
+  $scope.members = GroupMemberService.query();
 }

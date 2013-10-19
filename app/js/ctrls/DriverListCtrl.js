@@ -2,9 +2,9 @@
 
 /* Controllers */
 function DriverListCtrl($scope, SlotService) {
-	$scope.slots = SlotService.getSlots();
-	$scope.slotDetail = {};
-	$scope.slotSchedules = [];
+  $scope.slots = SlotService.getSlots();
+  $scope.slotDetail = {};
+  $scope.slotSchedules = [];
   $scope.dirty = false;
   $scope.loaded = false;
 
@@ -35,12 +35,12 @@ function DriverListCtrl($scope, SlotService) {
     var result = SlotService.post($scope.selectedSlot.id, $scope.slotSchedules, $scope.clearDirty);
   }
 
-	$scope.alternatives= {
+  $scope.alternatives= {
     'NOTYET' : '未入力'
   , 'NODRIVER' : '該当者無し'
   , 'ASSIGNINED' : '確定'
   , 'CANCELLED' : 'キャンセル'
   , 'DONE' : '実施完了'
   , 'CLOSED' : 'ペアプロ実施なし'
-	};
+  };
 }

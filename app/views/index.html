@@ -34,31 +34,31 @@
   </head>
   <div class="container">
 
-	  <div class="navbar" ng-controller="NavbarCtrl">
-		  <div class="navbar-inner">
-			  <a class="brand" href="#/">Magpie</a>
-			  <ul class="nav">
-				  <li ng-class="{active: routeIs('/schedules')}"><a href="#/schedules">Schedule</a></li>
-				  <li ng-class="{active: routeIs('/drivers')}"><a href="#/drivers">Driver</a></li>
-				  <li ng-class="{active: routeIs('/navigators')}"><a href="#/navigators">Navigator</a></li>
-				  <li ng-class="{active: routeIs('/fruits')}"><a href="#/fruits">fruits</a></li>
-				  <li ng-class="{active: routeIs('/admin')}"><a href="#/admin">Admin</a></li>
-			  </ul>
+    <div class="navbar" ng-controller="NavbarCtrl">
+      <div class="navbar-inner">
+        <a class="brand" href="#/">Magpie</a>
+        <ul class="nav">
+          <li ng-class="{active: routeIs('/schedules')}"><a href="#/schedules">Schedule</a></li>
+          <li ng-class="{active: routeIs('/drivers')}"><a href="#/drivers">Driver</a></li>
+          <li ng-class="{active: routeIs('/navigators')}"><a href="#/navigators">Navigator</a></li>
+          <li ng-class="{active: routeIs('/fruits')}"><a href="#/fruits">fruits</a></li>
+          <li ng-class="{active: routeIs('/admin')}"><a href="#/admin">Admin</a></li>
+        </ul>
 
-			  <ul class="nav pull-right">
-				  <li ng-class="{active: routeIs('/help')}"><a href="#/help">Help</a></li>
-			  </ul>
-		  </div>
-	  </div>
-	  <ng-view></ng-view>
+        <ul class="nav pull-right">
+          <li ng-class="{active: routeIs('/help')}"><a href="#/help">Help</a></li>
+        </ul>
+      </div>
+    </div>
+    <ng-view></ng-view>
   </div>  
 <!--
-	<div ng-controller="ajaxtestCtrl">
-	
+  <div ng-controller="ajaxtestCtrl">
+  
     <form id="drivers" method=get enctype="utf-8">
       <input type="button" value="navigators?" onclick="getNaviSchedules(3)"></input>
     </form>
     
-	</div>
+  </div>
 -->
 </html>
